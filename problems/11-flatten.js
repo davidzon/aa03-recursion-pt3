@@ -12,6 +12,32 @@ flatten2([1, 2]); // [1, 2]
 flatten2([1, [2, [3]]]); // [1, 2, 3]
 ***********************************************************************/
 
+
+function flatten(arr) {
+    if(arr.length === 0) {
+        return [];
+    }
+
+    // if first element is an array, recursively flatten it
+    if(Array.isArray(arr[0])) {
+                                              // slices everything off of the first index
+        return flatten(arr[0]).concat(flatten(arr.slice(1)));
+    }
+    // if element is not an array, put it in array and concat with flatten remainder of array
+    return [arr[0]].concat(flatten(arr.slice(1)));
+}
+
+
+// console.log(flatten([])); // []
+// console.log(flatten([1, 2])); // [1, 2]
+// console.log(flatten([1, 2, 3, 4, 5])); // [1, 2, 3, 4, 5]
+console.log(flatten([1,
+                      [2,
+                        [3]]])); // [1, 2, 3]
+
+
+
+// first try not working
 // let newArr = [];
 
 // function flatten2(arr) {
@@ -37,29 +63,6 @@ flatten2([1, [2, [3]]]); // [1, 2, 3]
 // console.log(flatten2([1,
 //                       [2,
 //                         [3]]])); //
-
-
-function flatten(arr) {
-    if(arr.length === 0) {
-        return [];
-    }
-
-    // if first element is an array, recursively flatten it
-    if(Array.isArray(arr[0])) {
-                                              // slices everything off of the first index
-        return flatten(arr[0]).concat(flatten(arr.slice(1)));
-    }
-    // if element is not an array, put it in array and concat with flatten remainder of array
-    return [arr[0]].concat(flatten(arr.slice(1)));
-}
-
-
-// console.log(flatten([])); // []
-// console.log(flatten([1, 2])); // [1, 2]
-// console.log(flatten([1, 2, 3, 4, 5])); // [1, 2, 3, 4, 5]
-console.log(flatten([1,
-                      [2,
-                        [3]]])); // [1, 2, 3]
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
