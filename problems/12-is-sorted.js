@@ -23,11 +23,29 @@ function isSorted(arr) {
      return false
 }
 
-
 console.log(isSorted([1, 2, 3, 4, 5])); // true
 console.log(isSorted([1, 2, 4, 3, 5])); // false
 console.log(isSorted([2, 4, 6, 7, 8])); // true
 console.log(isSorted([5, 4, 3, 2, 1])); // false
+
+//// slicing from the beginning above ^ from the end below \/
+
+let isSorted2 = function(arr) {
+    if(arr.length <= 1) return true;
+        let last = arr[arr.length - 1];
+        console.log(last);
+        let secondL = arr[arr.length - 2];
+        console.log(secondL);
+    if(secondL < last) {
+        return isSorted2(arr.slice(0, -1))
+    }
+    return false;
+}
+
+console.log(isSorted2([1, 2, 3, 4, 5])); // true
+console.log(isSorted2([1, 2, 4, 3, 5])); // false
+console.log(isSorted2([2, 4, 6, 7, 8])); // true
+console.log(isSorted2([5, 4, 3, 2, 1])); // false
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
