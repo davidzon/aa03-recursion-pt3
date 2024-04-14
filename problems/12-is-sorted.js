@@ -47,6 +47,28 @@ console.log(isSorted2([1, 2, 4, 3, 5])); // false
 console.log(isSorted2([2, 4, 6, 7, 8])); // true
 console.log(isSorted2([5, 4, 3, 2, 1])); // false
 
+//// using pop array method \/
+
+let isSorted3 = (arr) => {
+    if(arr.length <= 1) return true;
+
+    let last = arr[arr.length - 1];
+    let secondL = arr[arr.length - 2];
+
+    if(secondL < last) {
+        console.log(arr);
+        arr.pop();         // pop must be done before returning recursive func
+        console.log(arr);
+        return isSorted3(arr);
+    }
+    console.log(`unsorted array: ${arr}`);
+    return false;
+}
+
+console.log(isSorted3([1, 2, 3, 4, 5])); // true
+console.log(isSorted3([1, 2, 4, 3, 5])); // false
+console.log(isSorted3([2, 4, 6, 7, 8])); // true
+console.log(isSorted3([5, 4, 3, 2, 1])); // false
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
