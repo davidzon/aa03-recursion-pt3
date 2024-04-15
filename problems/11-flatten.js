@@ -21,8 +21,9 @@ function flatten(arr) {
     // if first element is an array, recursively flatten it
     if(Array.isArray(arr[0])) {
                                               // slices everything off of the first index
-        // return flatten(arr[0]).concat(flatten(arr.slice(1)));
-        return [...flatten(arr[0]) , ...flatten(arr.slice(1))];
+        console.log(arr[0]);
+        return flatten(arr[0]).concat(flatten(arr.slice(1)));
+        // return [...flatten(arr[0]) , ...flatten(arr.slice(1))];
 
     }
     // if element is not an array, put it in array and concat with flatten remainder of array
