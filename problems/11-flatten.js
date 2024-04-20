@@ -18,7 +18,7 @@ function flatten(arr) {
         return [];
     }
 
-    // if first element is an array, recursively flatten it
+    // if first element \/ is an array, recursively flatten it
     if(Array.isArray(arr[0])) {
                                               // slices everything off of the first index
         console.log(arr[0]);
@@ -45,11 +45,11 @@ function flatten2(arr) {
   //!!START
   let newArray = [];
 
-  arr.forEach(function (contents) {
-      if (Array.isArray(contents)) {
-        newArray.push(...flatten2(contents));
+  arr.forEach((element) => {
+      if (Array.isArray(element)) {
+        newArray.push(...flatten2(element));
       } else {
-        newArray.push(contents);
+        newArray.push(element);
       }
   });
 
